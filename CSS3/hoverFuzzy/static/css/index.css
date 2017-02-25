@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", 'Microsoft Yahei', Helvetica, Arial
+}
+
+
+/* 水平垂直居中 */
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  position: relative;
+  max-width: 600px;
+  display: flex;
+  width: 50%;
+}
+
+.wrap img {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap .caption {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 30px;
+  position: absolute;
+}
+
+.wrap .caption .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: floralwhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .26);
+  box-shadow: 0 0 30px 30px rgba(0, 0, 0, .46);
+  transition: opacity .8s;
+  opacity: 0
+}
+
+.wrap .caption .container h1 {
+  margin-bottom: 20px;
+}
+
+.wrap .caption .container a {
+  position: relative;
+  font: 20px/100% 'Micrsoft Yahei';
+  color: deepskyblue;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.wrap .caption .container .ribbon {
+  background-image: -webkit-linear-gradient(left, #3498db, #f47920 10%, #d71345 20%, #f7acbc 30%, #ffd400 40%, #3498db 50%, #f47920 60%, #d71345 70%, #f7acbc 80%, #ffd400 90%, #3498db);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-background-size: 200% 100%;
+  -webkit-animation: masked-animation 4s infinite linear;
+}
+
+.wrap .caption .container .a-ribbon {
+  opacity: 0;
+  transform: translate(0, 20px);
+  transition: opacity .5s, transform .5s;
+  animation: ribbon-animation 5s infinite linear;
+  -webkit-animation: ribbon-animation 5s infinite linear
+}
+
+.wrap .caption .container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 0;
+  border: 3px solid ghostwhite;
+  border-width: 0 3px;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all .8s;
+  box-sizing: border-box;
+}
+
+.wrap .caption .container::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 100%;
+  border: 3px solid ghostwhite;
+  border-width: 3px 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: all .8s;
+  box-sizing: border-box;
+}
+
+.wrap:hover .container {
+  opacity: 1
+}
+
+.wrap:hover .container::before {
+  height: 100%;
+  visibility: visible;
+  top: 0;
+}
+
+.wrap:hover .container::after {
+  width: 100%;
+  visibility: visible;
+  left: 0;
+}
+
+.wrap:hover .caption .container .a-ribbon {
+  opacity: 1;
+  transform: translate(0);
+  -webkit-transform: translate(0);
+}
+
+
+/* 模糊背景 */
+
+.wrap:hover img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+@keyframes ribbon-animation {
+  0% {
+    color: cornflowerblue
+  }
+  25% {
+    color: orangered
+  }
+  50% {
+    color: pink
+  }
+  75% {
+    color: palevioletred
+  }
+  0% {
+    color: dodgerblue
+  }
+}
+
+@-webkit-keyframes ribbon-animation {
+  0% {
+    color: cornflowerblue
+  }
+  25% {
+    color: orangered
+  }
+  50% {
+    color: pink
+  }
+  75% {
+    color: palevioletred
+  }
+  0% {
+    color: dodgerblue
+  }
+}
+
+
+/* 文字流光效果 */
+
+@keyframes masked-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
