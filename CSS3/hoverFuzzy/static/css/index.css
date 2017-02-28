@@ -74,6 +74,7 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-background-size: 200% 100%;
+  background-size: 200% 100%;
   -webkit-animation: masked-animation 4s infinite linear;
 }
 
