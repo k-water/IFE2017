@@ -11,24 +11,12 @@ function Observer(data) {
   this.walk(data)
 }
 
-let pattern = {
-  get() {
-    console.log('你访问了' + key)
-    return val
-  },
-  set(newVal) {
-    console.log('你设置了' + key);
-    console.log('新的' + key + ' = ' + newVal)
-    if (newVal === val) return;
-    val = newVal
-  }
-}
-
 Observer.prototype.walk = function (obj) {
   let val
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       val = obj[key]
+        // console.log(val)
       if (typeof val === 'Object') {
         new Observer(val)
       }
@@ -64,3 +52,7 @@ let app2 = new Observer({
   university: 'bupt',
   major: 'computer'
 });
+app1.data.name // 你访问了 name
+app1.data.age = 100; // 你设置了 age，新的值为100
+app2.data.university // 你访问了 university
+app2.data.major = 'science' // 你设置了 major，新的值为 science
