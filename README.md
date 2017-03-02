@@ -26,4 +26,4 @@ IFESpring2017
   
   * [代码](https://github.com/k-water/IFE2017/tree/master/CSS3/3DCarousel)
   
-  * [预览](http://waterlin.cn/IFE2017/CSS3/3DCarousel/)
+  * [预览](http://waterlin.cn/IFE2017/CSS3/3DCarousel/)
