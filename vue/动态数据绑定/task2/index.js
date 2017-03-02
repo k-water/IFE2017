@@ -4,11 +4,10 @@ function Event() {
 
 Event.prototype.on = function (attr, callback) {
   if (this.events[attr]) {
+    // 放进回调函数
     this.events[attr].push(callback)
-      // console.log(this.events[attr])
   } else {
     this.events[attr] = [callback]
-      // console.log(this.events[attr])
   }
 }
 
@@ -20,8 +19,9 @@ Event.prototype.off = function (attr) {
       }
     }
   }
-  // ????
+  // 执行多次回调
 Event.prototype.emit = function (attr, ...args) {
+  // 执行$watch回调函数 
   this.events[attr] && this.events[attr].forEach(item => {
     item(...args)
   })
@@ -51,8 +51,9 @@ Observer.prototype.convert = function (key, val) {
       _this.eventsBus.emit(key, val, newVal);
       val = newVal
 
-      if (typeof newVal === 'Object') {
-        new Observer(Val)
+      // 深度遍历
+      if (typeof newVal === 'object') {
+        new Observer(val)
       }
     }
   })
@@ -64,7 +65,7 @@ Observer.prototype.walk = function (obj) {
     if (obj.hasOwnProperty(key)) {
       val = obj[key]
 
-      if (typeof val === 'Object') {
+      if (typeof val === 'object') {
         new Observer(val)
       }
     }
@@ -73,22 +74,23 @@ Observer.prototype.walk = function (obj) {
 }
 
 Observer.prototype.$watch = function (attr, callback) {
+  // 注册事件
   this.eventsBus.on(attr, callback)
 }
 
 
 let app = new Observer({
-  name: 'water',
-  age: 20,
-  address: 'Guangdong, Guangzhou'
+  basicInfo: {
+    name: 'water'
+  },
+  address: 'GZ, Guangzhou',
+  age: 20
 })
 
-app.$watch('age', function (oldVal, newVal) {
-  console.log(`我的年龄变了，原来是: ${oldVal}岁，现在是：${newVal}岁了`)
+//test
+app.data.basicInfo = { like: 'Anime' }
+app.data.basicInfo.like
+app.$watch('age', (oldVal, newVal) => {
+  console.log(`age变化了，原来是${oldVal}，现在是${newVal}`)
 })
-
-app.$watch('age', function (oldVal, newVal) {
-  console.log(`我的年龄真的变了诶，竟然年轻了${oldVal - newVal}岁`)
-})
-
-app.data.age = 18;
+app.data.age = 18

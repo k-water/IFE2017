@@ -17,7 +17,7 @@ Observer.prototype.walk = function (obj) {
     if (obj.hasOwnProperty(key)) {
       val = obj[key]
         // console.log(val)
-      if (typeof val === 'Object') {
+      if (typeof val === 'object') {
         new Observer(val)
       }
       this.convert(key, val)
