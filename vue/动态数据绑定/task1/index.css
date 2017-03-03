@@ -21,3 +21,12 @@ figcaption {
   font: 20px/150% 'Microsoft Yahei UI';
   text-align: center
 }
+
+span {
+  text-align: center
+}
+
+a {
+  text-decoration: none;
+  text-align: center
+}
