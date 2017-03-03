@@ -127,11 +127,12 @@ Watcher.prototype.update = function () {
 //测试
 let app = new Observer({
   basicInfo: {
-    name: 'liujianhuan',
-    age: 25
+    name: 'water',
+    age: 20
   },
-  address: 'Beijing'
+  address: 'Guangzhou'
 });
 
 let watcher = new Watcher(app.data, "basicInfo");
-app.data.basicInfo.age = 24;
+app.data.basicInfo.age = 18;
+app.data.basicInfo.name = 'balabala';
