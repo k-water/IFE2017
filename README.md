@@ -27,3 +27,15 @@ IFESpring2017
   * [代码](https://github.com/k-water/IFE2017/tree/master/CSS3/3DCarousel)
   
   * [预览](http://waterlin.cn/IFE2017/CSS3/3DCarousel/)
+
+* 正则表达式之入门
+  * [详情页](http://ife.baidu.com/course/detail/id/29)
+  
+  * [代码](https://github.com/k-water/IFE2017/tree/master/Reg/task1)
+  
+  * [预览](http://waterlin.cn/IFE2017/Reg/task1/)
+  
+* 动态数据绑定（三）
+  * [详情页](http://ife.baidu.com/course/detail/id/21)
+  
+  * [代码](https://github.com/k-water/IFE2017/tree/master/vue/%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/task3)
