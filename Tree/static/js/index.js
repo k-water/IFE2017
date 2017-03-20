@@ -36,6 +36,7 @@ const nodeType = function () {
 
 nodeType.prototype = {
   // 创建节点
+  // 参数 type className innerHTML
   createNode: function (type) {
     let node = document.createElement(type)
     node.className = arguments[1] ? arguments[1] : ''
@@ -73,6 +74,7 @@ nodeTree.prototype = {
       let liNode = this.elem.createNode('li')
       let txtNode = this.elem.createNode('div', 'tree', data[item].name)
 
+      // 图标样式
       txtNode.className = data[item].children ? 'tree' : 'tree children'
       liNode.appendChild(txtNode)
 
@@ -89,11 +91,13 @@ nodeTree.prototype = {
     const nodeList = document.querySelectorAll('.tree')
     const _this = this
 
-    nodeList.forEach(function (item) {
+    Array.from(nodeList).map(function (item) {
       item.addEventListener('click', function () {
         // 获取子节点列表
         let cList = this.parentNode.childNodes[1]
-        console.log(cList)
+
+        // console.log(cList)
+
         if (cList) {
           _this.elem.toggleShow(this, 'open')
           _this.elem.toggleShow(cList, 'open')
